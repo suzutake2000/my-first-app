@@ -1,11 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="theme-color" content="#10182d">
+    <title>ネオンランナー | 横スクロールアクション</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    ようこそ私のページへ！
+    <main class="game-shell">
+        <header class="topbar">
+            <a class="brand" href="#" aria-label="ネオンランナー ホーム">
+                <span class="brand-mark" aria-hidden="true">N</span>
+                <span>NEON<span class="brand-accent">RUNNER</span></span>
+            </a>
+            <button class="restart-button" id="restart-button" type="button">↻ <span>最初から</span></button>
+        </header>
+
+        <section class="intro" aria-labelledby="game-title">
+            <p class="eyebrow">SIDE-SCROLLING ACTION · MVP</p>
+            <h1 id="game-title">ネオンランナー</h1>
+            <p>コインを集めながら、ゴールの旗を目指そう。</p>
+        </section>
+
+        <section class="game-card" aria-label="ゲーム">
+            <div class="game-hud" aria-live="polite">
+                <div class="hud-item"><span class="hud-icon">◆</span><span>COINS</span><strong id="coin-count">0</strong></div>
+                <div class="hud-item lives"><span>♥</span><span>LIVES</span><strong id="life-count">3</strong></div>
+                <div class="hud-progress"><span id="progress-label">スタート地点</span><div class="progress-track"><span id="progress-fill"></span></div></div>
+            </div>
+            <div class="canvas-wrap">
+                <canvas id="game-canvas" aria-label="横スクロールアクションゲーム画面"></canvas>
+                <div class="game-message" id="game-message" hidden>
+                    <div class="message-card">
+                        <span class="message-icon" id="message-icon">🏁</span>
+                        <h2 id="message-title">ゴール！</h2>
+                        <p id="message-text">コインを集めてクリアしました。</p>
+                        <button id="play-again" type="button">もう一度プレイ</button>
+                    </div>
+                </div>
+            </div>
+            <div class="game-footer">
+                <p><kbd>←</kbd> <kbd>→</kbd> 移動 <span class="hint-divider">·</span> <kbd>Space</kbd> ジャンプ <span class="hint-divider">·</span> 敵は踏んで倒そう</p>
+                <span class="level-tag">LEVEL 01 <i></i> 01</span>
+            </div>
+        </section>
+
+        <div class="mobile-controls" aria-label="タッチ操作">
+            <button class="control-button" data-control="left" aria-label="左へ移動">←</button>
+            <button class="control-button" data-control="right" aria-label="右へ移動">→</button>
+            <button class="control-button jump-button" data-control="jump" aria-label="ジャンプ">JUMP <span>↑</span></button>
+        </div>
+        <p class="footer-note">小さな一歩が、大きな冒険になる。</p>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
